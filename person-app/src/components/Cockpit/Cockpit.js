@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+    useEffect( () => {
+        console.log('[Cockpit.js] useEffect');
+        // HTTP Request...
+
+        setTimeout( () => {
+            alert('Saved data to the cloud!'); 
+        }, 1000 )
+    }, [] );
 
     // Assign button CSS conditionally
     let btnClass = '';
