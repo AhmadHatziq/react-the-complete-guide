@@ -7,8 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props); 
     console.log('App.js constructor');
-    this.state = {
-      
+    this.state = { 
       persons: [
         { id: '123' , name: 'Max', age: 28 }, 
         { id: '1234' , name: 'Manu', age: 50 }, 
@@ -17,6 +16,11 @@ class App extends Component {
       showPersons: false
     }
   }; 
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('App.js getDerivedStateFromProps', props);
+    return state; 
+  }
 
 
   deletePersonHandler = (personIndex) => {
@@ -32,6 +36,10 @@ class App extends Component {
     // Update the original array
     this.setState({persons: persons}); 
   };
+
+  componentDidMount() {
+    console.log('App.js componentDidMount'); 
+  }
 
   nameChangeHandler = (event, id) => {
     // Need to find the person with the matching id
@@ -64,7 +72,9 @@ class App extends Component {
     this.setState({showPersons: !doesShow});
   }
   
-  render() {     
+  render() {    
+    
+    console.log('App.js render'); 
 
     // Conditional statement to display person content with iterating over array objects
     let persons = null; 
