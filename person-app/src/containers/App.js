@@ -4,14 +4,20 @@ import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: '123' , name: 'Max', age: 28 }, 
-      { id: '1234' , name: 'Manu', age: 50 }, 
-      { id: 'aqad' , name: 'Steph', age: 20}
-    ], 
-    showPersons: false
-  }
+  constructor(props) {
+    super(props); 
+    console.log('App.js constructor');
+    this.state = {
+      
+      persons: [
+        { id: '123' , name: 'Max', age: 28 }, 
+        { id: '1234' , name: 'Manu', age: 50 }, 
+        { id: 'aqad' , name: 'Steph', age: 20}
+      ], 
+      showPersons: false
+    }
+  }; 
+
 
   deletePersonHandler = (personIndex) => {
     // Copy the array contents using slice() with no argument
