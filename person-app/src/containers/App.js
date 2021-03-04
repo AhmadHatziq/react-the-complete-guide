@@ -30,7 +30,7 @@ class App extends Component {
   nameChangeHandler = (event, id) => {
     // Need to find the person with the matching id
     const personIndex = this.state.persons.findIndex(p => {
-      return p.id == id;
+      return p.id === id;
     });
 
     // Extract the single person object by copy, not reference
@@ -81,6 +81,7 @@ class App extends Component {
       
       <div className="App"> 
         <Cockpit
+          title = {this.props.appTitle}
           showPersons = {this.state.showPersons}
           persons = {this.state.persons}
           clicked = {this.togglePersonHandler}
